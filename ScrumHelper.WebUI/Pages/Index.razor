@@ -1,0 +1,148 @@
+﻿@page "/"
+@using ScrumHelper.BusinessLogic
+@using ScrumHelper.Core
+
+<PageTitle>Index</PageTitle>
+<div class="container">
+	<div class="row">
+	    <div class="col">
+            <h1>Scrum Helper</h1>
+            <h2>Story Point Estimator</h2>
+        </div>
+    </div>
+    <EditForm EditContext="@editContext">
+        <form>
+            <div class="row">
+				<div class="col">
+			        <div class="card">
+				        <div class="card-body">
+                            <label for="ComplexityInput" class="card-title">Complexity</label>
+                            <InputSelect id="ComplexityInput" class="form-control" @bind-Value="itemToEstimate.Complexity">
+                            @foreach (var size in Enum.GetValues(typeof(TShirtSizes)))
+                            {
+                                <option value="@size">@size</option>
+                            }
+                        </InputSelect>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+			        <div class="card">
+				        <div class="card-body">
+                            <label for="UncertaintlyInput" class="card-title">Uncertainty</label>
+                            <InputSelect id="UncertaintyInput" class="form-control" @bind-Value="itemToEstimate.Uncertainty">
+                                @foreach (var size in Enum.GetValues(typeof(TShirtSizes)))
+                                {
+                                    <option value="@size">@size</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+			        <div class="card">
+				        <div class="card-body">
+                            <label for="ErrortInput" class="card-title">Effort</label>
+                            <InputSelect id="EffortInput" class="form-control" @bind-Value="itemToEstimate.Effort">
+                                @foreach (var size in Enum.GetValues(typeof(TShirtSizes)))
+                                {
+                                    <option value="@size">@size</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </EditForm>
+        <button class="btn btn-primary" @onclick="Caculate">Calculate</button>
+        <div class="row">
+			<div class="col">
+                <p>
+                    <a class="btn btn-secondary" data-bs-toggle="collapse" href="#settings" role="button" aria-expanded="false" aria-controls="settings">Settings</a>
+                </p>
+                <div id="settings" class="collapse">
+                    <div class="row">
+                        <label for="sequenceLengthInput">Sequence Length</label>
+                        <input id="sequenceLengthInput" type="text" class="form-control" @bind-value="sequenceLength"/>
+                        <button class="" @onclick="UpdateSequence">Update</button>
+                        <br />
+					    <label>Fibonacci Sequence: @fibonacciSequence</label>
+                    </div>
+				    <div class="row">
+					    <div class="col">
+                            <div class="card card-body">
+                                <label for="xSmallInput" class="card-title">X-Small</label>
+                                <input id="xSmallInput" type="text" class="form-control" @bind-value="configuration.XSmallTShirt" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-body">
+                                <label for="smallInput" class="card-title">Small</label>
+                                <input id="smallInput" type="text" class="form-control" @bind-value="configuration.SmallTShirt" />
+                            </div>
+                        </div>
+                        <div class="col">    
+                            <div class="card card-body">
+                                <label for="mediumInput" class="card-title">Medium</label>
+                                <input id="mediumInput" type="text" class="form-control" @bind-value="configuration.MediumTShirt" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-body">
+                                <label for="largeInput" class="card-title">Large</label>
+                                <input id="largeInput" type="text" class="form-control" @bind-value="configuration.LargeTShirt" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-body">
+                                <label for="xLargeInput" class="card-title">X-Large</label>
+                                <input id="xLargeInput" type="text" class="form-control" @bind-value="configuration.XLargeTShirt" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+	    <div class="col">
+            <p class="display-5">Estimated Point Value: @estimatedValue</p>
+        </div>
+    </div>
+    
+
+</div>
+@code{
+    private EditContext editContext;
+    private Estimation itemToEstimate = new Estimation();
+    private Configuration configuration;
+    private uint estimatedValue;
+    private uint sequenceLength = 10;
+    private string fibonacciSequence;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(itemToEstimate);
+        configuration = new Configuration(1, 2, 3, 5, 8);
+        UpdateSequence();
+        base.OnInitialized();
+    }
+
+    public class Estimation
+    {
+        public TShirtSizes Complexity { get; set; }
+        public TShirtSizes Uncertainty { get; set; }
+        public TShirtSizes Effort { get; set; }
+    }
+
+    private void Caculate()
+    {
+        var pointCalculator = new Calculator(configuration);
+        estimatedValue = pointCalculator.GenerateStoryPointValue(itemToEstimate.Complexity, itemToEstimate.Uncertainty, itemToEstimate.Effort);
+    }
+
+    private void UpdateSequence()
+    {
+        fibonacciSequence = String.Join(", ", FibonacciSequence.GenerateUpToCount(sequenceLength).ConvertAll(i => i.ToString()));
+    }
+}

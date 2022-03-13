@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumHelper.BusinessLogic", "ScrumHelper.BusinessLogic\ScrumHelper.BusinessLogic.csproj", "{62122112-2A1A-4C64-83B2-B360E6CA5614}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumHelper.BusinessLogic.Tests", "ScrumHelper.BusinessLogic.Tests\ScrumHelper.BusinessLogic.Tests.csproj", "{14FA977C-D371-4064-B9C1-6DC8AA81B34E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumHelper.Core", "ScrumHelper.Core\ScrumHelper.Core.csproj", "{A1244937-68A3-44AA-96D3-5CC7D15D267F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumHelper.Core.Tests", "ScrumHelper.Core.Tests\ScrumHelper.Core.Tests.csproj", "{5559F2C0-54CB-455B-B301-3E02BC9DDE2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumHelper.WebUI", "ScrumHelper.WebUI\ScrumHelper.WebUI.csproj", "{B1D23C2B-C700-4D91-A147-878323861A4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumHelper.MauiUI", "ScrumHelper.MauiUI\ScrumHelper.MauiUI.csproj", "{CA376A7A-563C-40AA-B52F-7E8E6CACE097}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62122112-2A1A-4C64-83B2-B360E6CA5614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62122112-2A1A-4C64-83B2-B360E6CA5614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62122112-2A1A-4C64-83B2-B360E6CA5614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62122112-2A1A-4C64-83B2-B360E6CA5614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FA977C-D371-4064-B9C1-6DC8AA81B34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FA977C-D371-4064-B9C1-6DC8AA81B34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FA977C-D371-4064-B9C1-6DC8AA81B34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FA977C-D371-4064-B9C1-6DC8AA81B34E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1244937-68A3-44AA-96D3-5CC7D15D267F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1244937-68A3-44AA-96D3-5CC7D15D267F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1244937-68A3-44AA-96D3-5CC7D15D267F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1244937-68A3-44AA-96D3-5CC7D15D267F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5559F2C0-54CB-455B-B301-3E02BC9DDE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5559F2C0-54CB-455B-B301-3E02BC9DDE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5559F2C0-54CB-455B-B301-3E02BC9DDE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5559F2C0-54CB-455B-B301-3E02BC9DDE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D23C2B-C700-4D91-A147-878323861A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D23C2B-C700-4D91-A147-878323861A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D23C2B-C700-4D91-A147-878323861A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D23C2B-C700-4D91-A147-878323861A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA376A7A-563C-40AA-B52F-7E8E6CACE097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA376A7A-563C-40AA-B52F-7E8E6CACE097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA376A7A-563C-40AA-B52F-7E8E6CACE097}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CA376A7A-563C-40AA-B52F-7E8E6CACE097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA376A7A-563C-40AA-B52F-7E8E6CACE097}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {429D19ED-F587-455E-B0E0-15F85BF8AB02}
+	EndGlobalSection
+EndGlobal
